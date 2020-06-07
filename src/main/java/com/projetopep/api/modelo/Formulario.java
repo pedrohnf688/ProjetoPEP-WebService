@@ -38,17 +38,20 @@ public class Formulario {
 	@Column(name = "date_created", nullable = false)
 	private Date dateCreated;
 
+	@Column(name = "date_envio_resposta", nullable = false)
+	private Date dateEnvioResposta;
+
+	@Column(name = "num", nullable = false)
 	private Integer num;
 
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-	
+
 	@OneToMany(mappedBy = "formulario", fetch = FetchType.EAGER, orphanRemoval = true)
 	@Fetch(FetchMode.SUBSELECT)
 	@Cascade({ org.hibernate.annotations.CascadeType.ALL })
 	@JsonIgnore
 	private List<Resposta> respostas;
-
 
 }

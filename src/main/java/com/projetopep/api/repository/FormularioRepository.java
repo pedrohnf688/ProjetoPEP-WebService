@@ -11,14 +11,14 @@ import com.projetopep.api.modelo.Formulario;
 @Repository
 public interface FormularioRepository extends JpaRepository<Formulario, Long> {
 
-	Formulario findByDateCreated(Date dateCreated);
+	List<Formulario> findAllByDateCreated(Date dateCreated);
 
 	List<Formulario> findAllByUsuarioId(Long id);
 
-	Formulario findByNum(Integer num);
+	List<Formulario> findAllByNumAndUsuarioId(Integer num, Long id);
 
 	List<Formulario> findAllByNumAndDateCreated(Integer num, Date dateCreated);
 
-	List<Formulario> findAllByUsuarioIdAndDateCreateds(Long id, Date dateCreated);
+	List<Formulario> findAllByUsuarioIdAndDateCreated(Long id, Date dateCreated);
 
 }

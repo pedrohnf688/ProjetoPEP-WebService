@@ -11,14 +11,14 @@ import com.projetopep.api.modelo.Resposta;
 @Repository
 public interface RespostaRepository extends JpaRepository<Resposta, Long> {
 
-	Resposta findByDateCreated(Date dateCreated);
-	
-	Resposta findByChave(Integer chave);
-	
+	List<Resposta> findAllByDateCreated(Date dateCreated);
+
 	List<Resposta> findAllByChave(Integer chave);
-	
+
+	List<Resposta> findAllByChaveAndFormularioId(Integer chave, Long id);
+
 	List<Resposta> findAllByFormularioId(Long id);
-	
-	List<Resposta> findAllsByFormularioIdAndDateCreated(Long id, Date dateCreated);
-	
+
+	List<Resposta> findAllByFormularioIdAndDateCreated(Long id, Date dateCreated);
+
 }

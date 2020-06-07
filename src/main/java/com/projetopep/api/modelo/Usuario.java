@@ -35,6 +35,12 @@ public class Usuario {
 	@Column(name = "username", nullable = false)
 	private String username;
 
+	@Column(name = "email", nullable = false)
+	private String email;
+
+	@Column(name = "identificador", nullable = false)
+	private String identificador;
+
 	@Column(name = "senha", nullable = false)
 	private String senha;
 
