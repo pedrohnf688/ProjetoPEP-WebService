@@ -52,6 +52,6 @@ public class Formulario {
 	@Fetch(FetchMode.SUBSELECT)
 	@Cascade({ org.hibernate.annotations.CascadeType.ALL })
 	@JsonIgnore
-	private List<Resposta> respostas;
+	private List<RespostaAntigo> respostas;
 
 }

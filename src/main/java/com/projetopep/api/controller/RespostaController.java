@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetopep.api.config.Response;
-import com.projetopep.api.modelo.Resposta;
+import com.projetopep.api.modelo.RespostaAntigo;
 import com.projetopep.api.repository.RespostaRepository;
 
 @RestController
@@ -25,10 +25,10 @@ public class RespostaController {
 	private RespostaRepository rr;
 
 	@GetMapping
-	public ResponseEntity<Response<List<Resposta>>> listAllRespotas() {
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllRespotas() {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAll();
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAll();
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");
@@ -40,10 +40,10 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "{id}")
-	public ResponseEntity<Response<Resposta>> listById(@PathVariable("id") Long id) {
+	public ResponseEntity<Response<RespostaAntigo>> listById(@PathVariable("id") Long id) {
 
-		Response<Resposta> response = new Response<Resposta>();
-		Optional<Resposta> r = rr.findById(id);
+		Response<RespostaAntigo> response = new Response<RespostaAntigo>();
+		Optional<RespostaAntigo> r = rr.findById(id);
 
 		if (!r.isPresent()) {
 			response.getErros().add("Resposta não existente.");
@@ -55,11 +55,11 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "dateCreated")
-	public ResponseEntity<Response<List<Resposta>>> listAllByDateCreated(
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllByDateCreated(
 			@RequestParam("dateCreated") @DateTimeFormat(pattern = "dd.MM.yyyy") Date dateCreated) {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAllByDateCreated(dateCreated);
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAllByDateCreated(dateCreated);
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");
@@ -71,10 +71,10 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "chave")
-	public ResponseEntity<Response<List<Resposta>>> listAllByChave(@RequestParam("chave") Integer chave) {
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllByChave(@RequestParam("chave") Integer chave) {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAllByChave(chave);
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAllByChave(chave);
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");
@@ -86,11 +86,11 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "chaveAndFormId")
-	public ResponseEntity<Response<List<Resposta>>> listAllByChaveAndFormularioId(@RequestParam("chave") Integer chave,
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllByChaveAndFormularioId(@RequestParam("chave") Integer chave,
 			@RequestParam("id") Long id) {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAllByChaveAndFormularioId(chave, id);
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAllByChaveAndFormularioId(chave, id);
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");
@@ -102,10 +102,10 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "formId")
-	public ResponseEntity<Response<List<Resposta>>> listAllByFormularioId(@RequestParam("id") Long id) {
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllByFormularioId(@RequestParam("id") Long id) {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAllByFormularioId(id);
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAllByFormularioId(id);
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");
@@ -117,11 +117,11 @@ public class RespostaController {
 	}
 
 	@GetMapping(value = "formIdAndDateCreated")
-	public ResponseEntity<Response<List<Resposta>>> listAllByFormularioIdAndDateCreated(@RequestParam("id") Long id,
+	public ResponseEntity<Response<List<RespostaAntigo>>> listAllByFormularioIdAndDateCreated(@RequestParam("id") Long id,
 			@RequestParam("dateCreated") @DateTimeFormat(pattern = "dd.MM.yyyy") Date dateCreated) {
 
-		Response<List<Resposta>> response = new Response<List<Resposta>>();
-		List<Resposta> listaRespostas = rr.findAllByFormularioIdAndDateCreated(id, dateCreated);
+		Response<List<RespostaAntigo>> response = new Response<List<RespostaAntigo>>();
+		List<RespostaAntigo> listaRespostas = rr.findAllByFormularioIdAndDateCreated(id, dateCreated);
 
 		if (listaRespostas.isEmpty()) {
 			response.getErros().add("A lista de respostas está vazia.");

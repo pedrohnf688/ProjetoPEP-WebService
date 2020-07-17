@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Resposta {
+public class Opcao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +24,9 @@ public class Resposta {
 
 	@Column(name = "date_created", nullable = false)
 	private Date dateCreated;
+
+	private String num;
 	
 	private String valor;
-	
-	private String numQuestao;
-	
-	private String nomeQuestionario;
 
 }

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.projetopep.api.modelo.enums.EnumStatusTarefa;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Resposta {
+public class Tarefa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +26,12 @@ public class Resposta {
 
 	@Column(name = "date_created", nullable = false)
 	private Date dateCreated;
-	
-	private String valor;
-	
-	private String numQuestao;
-	
-	private String nomeQuestionario;
 
+	private String nome;
+	
+	private EnumStatusTarefa  status;
+	
+	private String urlVideoAula;
+	
+	private Questionario questionario;
 }

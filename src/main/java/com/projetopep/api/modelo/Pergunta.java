@@ -1,6 +1,7 @@
 package com.projetopep.api.modelo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Resposta {
+public class Pergunta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +26,8 @@ public class Resposta {
 	@Column(name = "date_created", nullable = false)
 	private Date dateCreated;
 	
-	private String valor;
+	private String descricao;
 	
-	private String numQuestao;
-	
-	private String nomeQuestionario;
+	private List<Opcao> listaOpcoes;
 
 }

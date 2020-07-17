@@ -6,19 +6,19 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.projetopep.api.modelo.Resposta;
+import com.projetopep.api.modelo.RespostaAntigo;
 
 @Repository
-public interface RespostaRepository extends JpaRepository<Resposta, Long> {
+public interface RespostaRepository extends JpaRepository<RespostaAntigo, Long> {
 
-	List<Resposta> findAllByDateCreated(Date dateCreated);
+	List<RespostaAntigo> findAllByDateCreated(Date dateCreated);
 
-	List<Resposta> findAllByChave(Integer chave);
+	List<RespostaAntigo> findAllByChave(Integer chave);
 
-	List<Resposta> findAllByChaveAndFormularioId(Integer chave, Long id);
+	List<RespostaAntigo> findAllByChaveAndFormularioId(Integer chave, Long id);
 
-	List<Resposta> findAllByFormularioId(Long id);
+	List<RespostaAntigo> findAllByFormularioId(Long id);
 
-	List<Resposta> findAllByFormularioIdAndDateCreated(Long id, Date dateCreated);
+	List<RespostaAntigo> findAllByFormularioIdAndDateCreated(Long id, Date dateCreated);
 
 }
